@@ -1,0 +1,206 @@
+---
+sidebar: sidebar 
+permalink: reference-configs-aws.html 
+keywords: ec2, instance, type, explore, standard, premium, byol, capacity, maximum, virtual machine, Cloud Volumes ONTAP, supported, configurations, sizes, disks 
+summary: Verschiedene Cloud Volumes ONTAP Konfigurationen werden in AWS unterstützt. 
+---
+= Unterstützte Konfigurationen in AWS
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Verschiedene Cloud Volumes ONTAP Konfigurationen werden in AWS unterstützt.
+
+
+
+== Unterstützte Konfigurationen nach Lizenz
+
+Cloud Volumes ONTAP ist in AWS als Single-Node-System und als HA-Paar Nodes für Fehlertoleranz und unterbrechungsfreien Betrieb verfügbar.
+
+Ein Upgrade eines Single Node-Systems auf ein HA-Paar wird nicht unterstützt. Wenn Sie zwischen einem Single Node-System und einem HA-Paar wechseln möchten, müssen Sie ein neues System implementieren und Daten vom bestehenden System auf das neue System replizieren.
+
+[cols="h,d,d,d,d,d,d"]
+|===
+|  | Freimium | PAYGO Explore | PAYGO-Standard | PAYGO Premium | Node-basierte Lizenz | Kapazitätsbasierte Lizenz 
+
+
+| Maximale Systemkapazität (Festplatten + Objekt-Storage) | 500 gib | 2 tib | 10 tib | 368 tib ^1^ | 368 tib pro Lizenz ^1^ | 2 PiB ^1^ 
+
+
+| Unterstützte EC2-Instanztypen ^2^  a| 
+* C4.4xlarge
+* C4.8xlarge
+* C5.9xlarge
+* C5.18xlarge
+* C5d.4xlarge ^3^
+* C5d.9xlarge ^3^
+* C5d.18xlarge ^3^
+* C5n.9xlarge ^4^
+* C5n.18xlarge ^4^
+* m4.xlarge
+* M4.2xlarge
+* M4.4xlarge
+* m5.xlarge
+* M5.2xlarge
+* M5.4xlarge
+* M5.16 x groß
+* M5d.8xlarge ^3^
+* M5d.12xlarge ^3^
+* r4.xlarge
+* R4.2xlarge
+* r5.xlarge
+* R5.2xlarge
+* R5.8 x groß
+* R5.12 x groß ^5^
+* R5d.2xlarge ^3^
+
+ a| 
+* m4.xlarge
+* m5.xlarge
+
+ a| 
+* M4.2xlarge
+* M5.2xlarge
+* r4.xlarge
+* r5.xlarge
+
+ a| 
+* C4.4xlarge
+* C4.8xlarge
+* C5.9xlarge
+* C5.18xlarge
+* C5d.4xlarge ^3^
+* C5d.9xlarge ^3^
+* C5d.18xlarge ^3^
+* C5n.9xlarge ^4^
+* C5n.18xlarge ^4^
+* M4.4xlarge
+* M5.4xlarge
+* M5.16 x groß
+* M5d.8xlarge ^3^
+* M5d.12xlarge ^3^
+* R4.2xlarge
+* R5.2xlarge
+* R5.8 x groß
+* R5.12 x groß ^5^
+* R5d.2xlarge ^3^
+
+ a| 
+* C4.4xlarge
+* C4.8xlarge
+* C5.9xlarge
+* C5.18xlarge
+* C5d.4xlarge ^3^
+* C5d.9xlarge ^3^
+* C5d.18xlarge ^3^
+* C5n.9xlarge ^4^
+* C5n.18xlarge ^4^
+* m4.xlarge
+* M4.2xlarge
+* M4.4xlarge
+* m5.xlarge
+* M5.2xlarge
+* M5.4xlarge
+* M5.16 x groß
+* M5d.8xlarge ^3^
+* M5d.12xlarge ^3^
+* r4.xlarge
+* R4.2xlarge
+* r5.xlarge
+* R5.2xlarge
+* R5.8 x groß
+* R5.12 x groß ^5^
+* R5d.2xlarge ^3^
+
+ a| 
+* C4.4xlarge
+* C4.8xlarge
+* C5.9xlarge
+* C5.18xlarge
+* C5d.4xlarge ^3^
+* C5d.9xlarge ^3^
+* C5d.18xlarge ^3^
+* C5n.9xlarge ^4^
+* C5n.18xlarge ^4^
+* m4.xlarge
+* M4.2xlarge
+* M4.4xlarge
+* m5.xlarge
+* M5.2xlarge
+* M5.4xlarge
+* M5.16 x groß
+* M5d.8xlarge ^3^
+* M5d.12xlarge ^3^
+* r4.xlarge
+* R4.2xlarge
+* r5.xlarge
+* R5.2xlarge
+* R5.8 x groß
+* R5.12 x groß ^5^
+* R5d.2xlarge ^3^
+
+
+
+
+| Unterstützte Festplattentypen ^6^ 6+| Universell einsetzbare SSDs (gp3 und gp2), bereitgestellte IOPS-SSDs (io1) und durchsatzoptimierte HDDs (st1) ^7^ 
+|===
+Hinweise:
+
+. Bei einigen Konfigurationen verhindern Festplattenbeschränkungen, dass Sie durch die Verwendung von Festplatten allein das Kapazitätslimit nicht erreichen. In solchen Fällen wird die Kapazitätsgrenze von erreicht https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html["tiering inaktiver Daten in Objektspeicher"^]. Weitere Informationen zu Festplattenlimits finden Sie unter link:reference-limits-aws.html["Storage-Beschränkungen"].
+. Wenn Sie einen EC2-Instanztyp auswählen, können Sie angeben, ob es sich um eine freigegebene Instanz oder eine dedizierte Instanz handelt.
+. Zu diesen Instanztypen gehört lokaler NVMe-Storage, der Cloud Volumes ONTAP als _Flash Cache_ verwendet. Flash Cache beschleunigt den Zugriff auf Daten durch intelligente Cache-Speicherung von kürzlich gelesenen Anwenderdaten und NetApp Metadaten in Echtzeit. Es bringt Vorteile bei Random Read-intensiven Workloads, einschließlich Datenbanken, E-Mail und File Services. Um die Performance-Verbesserungen von Flash Cache nutzen zu können, muss die Komprimierung für alle Volumes deaktiviert sein. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-flash-cache.html["Weitere Informationen ."^].
+. C5n.9xlarge und c5n.18xlarge werden ab 9.7 P5 unterstützt.
+. Der Instanztyp r5.12xlarge weist eine bekannte Beschränkung der Support-Möglichkeiten auf. Wenn ein Node aufgrund eines Panikzustands neu gebootet wird, erfasst das System möglicherweise keine Kerndateien, die zur Fehlerbehebung und zum Beheben des Problems verwendet werden. Der Kunde akzeptiert die Risiken und die eingeschränkten Supportbedingungen und trägt in diesem Fall die gesamte Supportverantwortung.
+. Bei Verwendung von SSDs mit Cloud Volumes ONTAP Standard, Premium und BYOL wird eine verbesserte Schreib-Performance aktiviert.
+. Bei der Verwendung von durchsatzoptimierten HDDs (st1) wird kein Tiering von Daten zu Objekt-Storage empfohlen.
+. Informationen zu regionalen Support für AWS finden Sie unter https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes Regionen Weltweit"^].
+. Cloud Volumes ONTAP kann auf einer reservierten oder On-Demand-VM-Instanz beim Cloud-Provider ausgeführt werden. Lösungen, die andere VM-Instanztypen nutzen, werden nicht unterstützt.
+
+
+
+
+== Unterstützte Festplattengrößen
+
+In AWS kann ein Aggregat bis zu 6 Festplatten enthalten, die vom gleichen Typ und derselben Größe entsprechen.
+
+[cols="3*"]
+|===
+| Universell einsetzbare SSD (gp3 und gp2) | Provisionierter IOPS-SSD (io1) | Durchsatzoptimierte Festplatte (st1) 
+
+
+ a| 
+* 100 gib
+* 500 gib
+* 1 tib
+* 2 tib
+* 4 tib
+* 6 tib
+* 8 tib
+* 16 tib
+
+ a| 
+* 100 gib
+* 500 gib
+* 1 tib
+* 2 tib
+* 4 tib
+* 6 tib
+* 8 tib
+* 16 tib
+
+ a| 
+* 500 gib
+* 1 tib
+* 2 tib
+* 4 tib
+* 6 tib
+* 8 tib
+* 16 tib
+
+
+|===
