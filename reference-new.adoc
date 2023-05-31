@@ -16,7 +16,7 @@ summary: Cloud Volumes ONTAP 9.7 enthält mehrere neue Funktionen und Verbesseru
 [role="lead"]
 Cloud Volumes ONTAP 9.7 enthält mehrere neue Funktionen und Verbesserungen.
 
-Zusätzliche Funktionen und Verbesserungen sind auch in den neuesten Versionen von Cloud Manager eingeführt. Siehe https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html["Versionshinweise Zu Cloud Manager"^] Entsprechende Details.
+Zusätzliche Funktionen und Verbesserungen sind auch in den neuesten Versionen von Cloud Manager eingeführt. Siehe https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html["Versionshinweise Zu Cloud Manager"^] Entsprechende Details.
 
 
 
@@ -32,9 +32,9 @@ Sie können nun mehrere Lizenzen für ein Cloud Volumes ONTAP BYOL-System erwerb
 
 Die Anzahl der Lizenzen, die Sie für ein Single Node-System oder ein HA-Paar erwerben können, ist unbegrenzt.
 
-Beachten Sie, dass die Festplattenbeschränkungen verhindern können, dass Sie durch die Verwendung von Festplatten allein das Kapazitätslimit nicht erreichen. Sie können die Festplattengrenze um überschreiten https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html["tiering inaktiver Daten in Objektspeicher"^]. Weitere Informationen zu Festplattenlimits finden Sie in den Storage-Limits in diesen Versionshinweisen.
+Beachten Sie, dass die Festplattenbeschränkungen verhindern können, dass Sie durch die Verwendung von Festplatten allein das Kapazitätslimit nicht erreichen. Sie können die Festplattengrenze um überschreiten https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["tiering inaktiver Daten in Objektspeicher"^]. Weitere Informationen zu Festplattenlimits finden Sie in den Storage-Limits in diesen Versionshinweisen.
 
-https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-node-licenses.html["Erfahren Sie, wie Sie Cloud Volumes ONTAP zusätzliche Systemlizenzen hinzufügen"^].
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-node-licenses.html["Erfahren Sie, wie Sie Cloud Volumes ONTAP zusätzliche Systemlizenzen hinzufügen"^].
 
 
 
@@ -173,7 +173,7 @@ In Cloud Volumes ONTAP 9.7 werden nun mehrere neue EC2-Instanztypen unterstützt
 * R5.12 x groß ^2^
 
 
-^1^ zu diesen Instanztypen gehört lokaler NVMe-Storage, der Cloud Volumes ONTAP als _Flash Cache_ verwendet. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-flash-cache.html["Weitere Informationen ."^].
+^1^ zu diesen Instanztypen gehört lokaler NVMe-Storage, der Cloud Volumes ONTAP als _Flash Cache_ verwendet. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-flash-cache.html["Weitere Informationen ."^].
 
 ^2^ der Instanztyp r5.12xlarge weist eine bekannte Beschränkung der Support-Möglichkeiten auf. Wenn ein Node aufgrund eines Panikzustands neu gebootet wird, erfasst das System möglicherweise keine Kerndateien, die zur Fehlerbehebung und zum Beheben des Problems verwendet werden. Der Kunde akzeptiert die Risiken und die eingeschränkten Supportbedingungen und trägt in diesem Fall die gesamte Supportverantwortung.
 
@@ -237,7 +237,7 @@ Flash Cache beschleunigt den Zugriff auf Daten durch intelligente Cache-Speicher
 
 Neue Systeme können mit diesem VM-Typ implementiert oder vorhandene Systeme angepasst werden, um diesen VM-Typ zu verwenden. Außerdem profitieren Sie automatisch von Flash Cache.
 
-https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-flash-cache.html["Erfahren Sie mehr über die Aktivierung von Flash Cache auf Cloud Volumes ONTAP, einschließlich einer Einschränkung der Datenkomprimierung"^].
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-flash-cache.html["Erfahren Sie mehr über die Aktivierung von Flash Cache auf Cloud Volumes ONTAP, einschließlich einer Einschränkung der Datenkomprimierung"^].
 
 
 
@@ -252,7 +252,7 @@ Dieser Release behebt ein Problem, wenn beim Neubooten von Cloud Volumes ONTAP-N
 * Upgrades von Cloud Volumes ONTAP müssen von Cloud Manager abgeschlossen werden. Sie sollten kein Cloud Volumes ONTAP-Upgrade mit System Manager oder der CLI durchführen. Dies kann die Stabilität des Systems beeinträchtigen.
 * Sie können ein Upgrade von Version 9.6 auf Cloud Volumes ONTAP 9.7 durchführen. Cloud Manager fordert Sie zum Upgrade Ihrer vorhandenen Cloud Volumes ONTAP 9.6 Systeme auf Version 9.7 auf.
 +
-http://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-updating-ontap-cloud.html["Informieren Sie sich, wie ein Upgrade durchgeführt wird, wenn Cloud Manager Sie benachrichtigt"^].
+http://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-updating-ontap-cloud.html["Informieren Sie sich, wie ein Upgrade durchgeführt wird, wenn Cloud Manager Sie benachrichtigt"^].
 
 * Das Upgrade eines einzelnen Node-Systems nimmt das System für bis zu 25 Minuten offline, während dieser I/O-Unterbrechung erfolgt.
 * Das Upgrade eines HA-Paars erfolgt unterbrechungsfrei und die I/O wird unterbrochen. Während dieses unterbrechungsfreien Upgrade-Prozesses wird jeder Node entsprechend aktualisiert, um den I/O-Datenverkehr für die Clients weiterhin bereitzustellen.
