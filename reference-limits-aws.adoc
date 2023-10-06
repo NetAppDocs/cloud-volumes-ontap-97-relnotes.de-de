@@ -41,7 +41,7 @@ Bei einigen HA-Konfigurationen verhindern Festplattenbeschränkungen, dass Sie d
 | PAYGO Premium | 368 tib 
 
 
-| Node-basierte Lizenz | 368 tib pro Lizenz 
+| Node-basierte Lizenz | 2 PiB (erfordert mehrere Lizenzen) 
 
 
 | Kapazitätsbasierte Lizenz | 2 PiB 
@@ -60,8 +60,12 @@ Cloud Volumes ONTAP verwendet EBS Volumes als Festplatten mit einer maximalen Fe
 
 Die unten aufgeführten Festplattengrenzwerte gelten für Festplatten, die Benutzerdaten enthalten. Die Grenzen beinhalten nicht die Boot-Festplatte und Root-Festplatte.
 
+* Sie können mehrere Node-basierte Lizenzen für ein Cloud Volumes ONTAP BYOL Single Node- oder HA-Paar-System erwerben, um mehr als 368 tib Kapazität zuzuweisen, bis zum maximal getesteten und unterstützten Systemkapazitätslimit von 2 PiB. Beachten Sie, dass die Festplattenbeschränkungen verhindern können, dass Sie durch die Verwendung von Festplatten allein das Kapazitätslimit nicht erreichen. Sie können die Festplattengrenze um überschreiten https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["tiering inaktiver Daten in Objektspeicher"^]. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-node-licenses.html["Erfahren Sie, wie Sie Cloud Volumes ONTAP zusätzliche Systemlizenzen hinzufügen"^]. Obwohl Cloud Volumes ONTAP eine bis zu der maximal getesteten und unterstützten Systemkapazität von 2 PiB unterstützt, führt das Überschreiten der Grenze von 2 PiB zu einer nicht unterstützten Systemkonfiguration.
++
+** AWS Secret Cloud und Top Secret Cloud-Regionen unterstützen ab Cloud Volumes ONTAP 9.12.1 den Erwerb mehrerer Node-basierter Lizenzen.
 
-NOTE: Kunden können jetzt mehrere Node-basierte Lizenzen für ein Cloud Volumes ONTAP BYOL-System erwerben und so mehr als 368 tib Kapazität zuweisen. Die Anzahl der Lizenzen, die Sie für ein Single Node-System oder ein HA-Paar erwerben können, ist unbegrenzt. Beachten Sie, dass die Festplattenbeschränkungen verhindern können, dass Sie durch die Verwendung von Festplatten allein das Kapazitätslimit nicht erreichen. Sie können die Festplattengrenze um überschreiten https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["tiering inaktiver Daten in Objektspeicher"^]. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-node-licenses.html["Erfahren Sie, wie Sie Cloud Volumes ONTAP zusätzliche Systemlizenzen hinzufügen"^].
+
+
 
 
 
@@ -89,7 +93,7 @@ NOTE: Kunden können jetzt mehrere Node-basierte Lizenzen für ein Cloud Volumes
 2+|  | *Festplatten allein* | *Festplatten + Daten-Tiering* | *Festplatten allein* | *Festplatten + Daten-Tiering* 
 
 
-| c5-, m5- und r5-Instanzen | 22 | 352 tib | 368 tib | 352 tib | 368 tib x jede Lizenz 
+| c5-, m5- und r5-Instanzen | 22 | 352 tib | 368 tib | 352 tib | 2 PiB 
 
 
 | c4-, m4- und r4-Instanzen | 34 | 368 tib | 368 tib | 544 tib | 368 tib x jede Lizenz 
@@ -134,7 +138,7 @@ NOTE: Kunden können jetzt mehrere Node-basierte Lizenzen für ein Cloud Volumes
 2+|  | *Festplatten allein* | *Festplatten + Daten-Tiering* | *Festplatten allein* | *Festplatten + Daten-Tiering* 
 
 
-| c5-, m5- und r5-Instanzen | 19 | 304 tib | 368 tib | 304 tib | 368 tib x jede Lizenz 
+| c5-, m5- und r5-Instanzen | 19 | 304 tib | 368 tib | 304 tib | 2 PiB 
 
 
 | c4-, m4- und r4-Instanzen | 31 | 368 tib | 368 tib | 496 tib | 368 tib x jede Lizenz 
