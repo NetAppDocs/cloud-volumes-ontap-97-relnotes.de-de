@@ -112,7 +112,7 @@ NetApp unterstützt Cloud Volumes ONTAP auch weiterhin in den öffentlichen Regi
 * Deutschland West Central (Öffentlich)
 
 
-https://cloud.netapp.com/cloud-volumes-global-regions["Eine vollständige Liste der unterstützten Azure Regionen ist verfügbar"^].
+https://bluexp.netapp.com/cloud-volumes-global-regions["Eine vollständige Liste der unterstützten Azure Regionen ist verfügbar"^].
 
 
 
